@@ -1,2 +1,2 @@
 rootProject.name = 'account-mw'
-include 'calculator' , 'data-management'
+include 'calculator', 'data-management', 'file-management'
