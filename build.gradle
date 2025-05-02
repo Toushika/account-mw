@@ -1,7 +1,8 @@
 buildscript {
     ext {
         springBootVersion = '3.4.5'
-        springFrameworkPluginVersion = '3.0.7'
+        springFrameworkPluginVersion = '3.0.0'
+        springCloudVersion = '2024.0.0'
     }
     repositories {
         gradlePluginPortal()
