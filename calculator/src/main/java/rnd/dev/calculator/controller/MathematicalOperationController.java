@@ -11,37 +11,36 @@ import rnd.dev.calculator.record.response.NumberAdditionResponse;
 import rnd.dev.calculator.record.response.NumberDivisionResponse;
 import rnd.dev.calculator.record.response.NumberMultiplicationResponse;
 import rnd.dev.calculator.record.response.NumberSubtractionResponse;
+import rnd.dev.calculator.sevice.MathematicalOperationService;
 
 @RestController
 public class MathematicalOperationController {
 
+    private final MathematicalOperationService mathematicalOperationService;
+
+    public MathematicalOperationController(MathematicalOperationService mathematicalOperationService) {
+        this.mathematicalOperationService = mathematicalOperationService;
+    }
+
     @PostMapping("/add/num")
     public NumberAdditionResponse addNumber(@RequestBody NumberAddRequest numberAddRequest) {
-        return NumberAdditionResponse.builder()
-                .result(numberAddRequest.getFirstNumber() + numberAddRequest.getSecondNumber())
-                .build();
+        return mathematicalOperationService.addition(numberAddRequest);
     }
 
     @PostMapping("/sub/num")
     public NumberSubtractionResponse subtractNumber(@RequestBody NumberSubtractRequest numberSubtractRequest) {
-        return NumberSubtractionResponse.builder()
-                .result(numberSubtractRequest.getFirstNumber() - numberSubtractRequest.getSecondNumber())
-                .build();
+        return mathematicalOperationService.subtraction(numberSubtractRequest);
     }
 
 
     @PostMapping("/multiply/num")
     public NumberMultiplicationResponse multiplyNumber(@RequestBody NumberMultiplicationRequest numberMultiplicationRequest) {
-        return NumberMultiplicationResponse.builder()
-                .result(numberMultiplicationRequest.getFirstNumber() * numberMultiplicationRequest.getSecondNumber())
-                .build();
+        return mathematicalOperationService.multiply(numberMultiplicationRequest);
     }
 
     @PostMapping("/divison/num")
     public NumberDivisionResponse divisionNumber(@RequestBody NumberDivisionRequest numberDivisionRequest) {
-        return NumberDivisionResponse.builder()
-                .result(numberDivisionRequest.getFirstNumber() / numberDivisionRequest.getSecondNumber())
-                .build();
+        return mathematicalOperationService.division(numberDivisionRequest);
     }
 
 }

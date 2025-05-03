@@ -1,12 +1,23 @@
 package rnd.dev.calculator.sevice;
 
+import lombok.Setter;
+import org.springframework.stereotype.Service;
+import rnd.dev.calculator.record.request.NumberAddRequest;
+import rnd.dev.calculator.record.request.NumberDivisionRequest;
+import rnd.dev.calculator.record.request.NumberMultiplicationRequest;
+import rnd.dev.calculator.record.request.NumberSubtractRequest;
+import rnd.dev.calculator.record.response.NumberAdditionResponse;
+import rnd.dev.calculator.record.response.NumberDivisionResponse;
+import rnd.dev.calculator.record.response.NumberMultiplicationResponse;
+import rnd.dev.calculator.record.response.NumberSubtractionResponse;
+
 public interface MathematicalOperationService {
-    double addition(double num1, double num2);
+    NumberAdditionResponse addition(NumberAddRequest numberAddRequest);
 
-    double subtraction(double num1, double num2);
+    NumberSubtractionResponse subtraction(NumberSubtractRequest numberSubtractRequest);
 
-    double multiply(double num1, double num2);
+    NumberMultiplicationResponse multiply(NumberMultiplicationRequest numberMultiplicationRequest);
 
-    double division(double num1, double num2);
+    NumberDivisionResponse division(NumberDivisionRequest numberDivisionRequest);
 
 }
